@@ -39,11 +39,12 @@ class PaymentsGateway(AbstractGateway):
     API_VERSION = '3.1'
     DELIM_CHAR = ','
     
-    def eft_credit(self, amount, check, customer):
+    def eft_credit(self, amount, check, customer, merchant_id='139408',
+                   password='0FrYt8V2aIy6', transaction_type='23'):
         fields = {
-            'pg_merchant_id': '139408',
-            'pg_password': '0FrYt8V2aIy6',
-            'pg_transaction_type': '23',
+            'pg_merchant_id': merchant_id,
+            'pg_password': password,
+            'pg_transaction_type': transaction_type,
             'pg_total_amount': amount,
             'ecom_billto_postal_name_first': "test",
             'ecom_billto_postal_name_last': "test",
